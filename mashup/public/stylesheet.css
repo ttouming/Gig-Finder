@@ -1,0 +1,11 @@
+#map { height: 250px; }
+
+.card{
+    border: 1px solid black;
+    background-color:white;
+    padding: .5rem;
+    width:300px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

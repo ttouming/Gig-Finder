@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Flickr Demo</title>
+        <link rel="stylesheet" href="/stylesheet.css">
+        </link>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+            integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+            crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+            integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+            crossorigin=""></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+
+    <body style="background-color: rgb(203, 218, 216);">
+        <div class="container-flex">
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4 search-wrapper" style="padding-top:20px; text-align:center;">
+                    <label for="search">Search Citys</label>
+                    <input type="search" id="search" placeholder="please enter a city..." data-input/>
+                    <button data-search>search</button>
+                    <p>Page Counter: <b user-page-counter></b></p>
+                </div>
+                <div class="col-sm-4" style="padding-top:20px;padding-bottom:20px;text-align:right">
+                    <div class="table-responsive" style="border: solid black 1px;width: 400px;">
+                        <table class="ws-table-all" style="border: solid black 1px;" >
+                            <tbody>
+                                <tr>
+                                    <th style="width: 20%"search-location-name>                               
+                                    </th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                <tr>
+                                    <td style="border: solid black 1px;">
+                                        Condition:
+                                    </td>
+                                    <td style="border: solid black 1px;">
+                                        <b search-location-overall></b>
+                                    </td>
+                                    <td style="border: solid black 1px;">
+                                        Temperature:
+                                    </td>
+                                    <td style="border: solid black 1px;">
+                                        <b search-location-temp></b>c
+                                    </td>
+                                    <td style="border: solid black 1px;">
+                                        Humidity
+                                    </td>
+                                    <td style="border: solid black 1px;">
+                                        <b search-location-humidity></b>%
+                                    </td>
+                                    <td style="border: solid black 1px;">
+                                        Wind chill:
+                                    </td>
+                                    <td style="border: solid black 1px;">
+                                        <b search-location-windchill></b>c
+                                    </td>
+                                    <td style="border: solid black 1px;">
+                                        Wind speed:
+                                    </td>
+                                    <td style="border: solid black 1px;">
+                                        <b search-location-windspeed></b>m/s
+                                    </td>     
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div image-user-container></div>
+        
+            <div class="container">
+                <div id="map" style="border-radius: 10px;"></div>
+                <!-- {<div class ="col-sm-6" weather-user-container></div>} -->
+            </div>
+        
+            <div class="container" style="padding-bottom:30px;">
+                <div style="padding-top:3px;" event-user-container></div>
+            </div>
+        
+            <div>
+                <template data-user-template>
+                    <div class="card">
+                        <div class="header"></div>
+                        <div class="body"></div>
+                    </div>
+                </template>
+                <template image-user-template>
+                    <img src="" image-user-data>
+                </template>
+                <template event-user-template>
+                    <div style="border-style:dashed;border-color:black;border-width:1px;border-radius: 10px;" event-info-temp>
+                        <div class="row" style="margin:15px;border-bottom:1px black dotted;">
+                            <div class="col-sm-4" style="margin:5px; text-align:center;">
+                                <img src="" alt="" event-user-image>
+                            </div>
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-4" style="margin:5px;text-align:center;">
+                                <iframe width="280" title="YouTube" frameborder="0" allowfullscreen event-yt></iframe>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="container" style="text-align:center">
+                                    <div class="header">
+                                        <h4 event-title></h4>
+                                    </div>
+                                    <div class="body">
+                                        <p>Event type: <b event-type></b></p>
+                                        <p>Event time: <b event-time></b></p>
+                                        <p>End time: <b event-endtime></b></p>
+                                        <p>Performers name: <b performers-name></b></p>
+                                        <p>Performers type: <b performers-type></b></p>
+                                        <p>Url: <a href="" performers-url></a></p>
+                                        <!-- <p>Gener: <b performers-gener></b></p> -->
+                                        <p>Price: $ <b event-price></b></p>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </template>
+                <template event-user-template-backup>
+                    <div class="card col-sm-4">
+                        <img src="" alt="" event-user-image>
+                        <div class="container">
+                            <div class="header">
+                                <h4 event-title></h4>
+                            </div>
+                            <div class="body">
+                                <p event-type></p>
+                                <p event-time></p>
+                                <p performers-type></p>
+                                <a href="" performers-url></a>
+                                <p performers-gener></p>
+                                <a>Price: <a event-price></a></a>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <script src="/javascript/fnapp.js"></script>
+    </body>
+
+</html>
