@@ -12,4 +12,5 @@ Users can locate the map view to the city on the map by giving the search bar a 
 <img src="https://user-images.githubusercontent.com/115144351/213116354-68955050-fedc-491b-bc95-f22161b02f27.png" alt="Cover" width="50%"/>
 
 The map displays 500 current concert events as map markers worldwide. Users can get detailed information of the event and a youtube link of the performers by clicking the marker.
+
 <img src="https://user-images.githubusercontent.com/115144351/213116382-0439f4f6-d7f0-43e8-9e3f-2e3048c1d6a4.png" alt="Cover" width="50%"/>
