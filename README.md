@@ -7,6 +7,7 @@ The mashup app aims to provide a clean view of some basic information of current
 ## User Guide
 User can see a simple web app that has a map, search bar, and a table once they enter the website.
 ![image](https://user-images.githubusercontent.com/115144351/213116309-c6851905-aa6a-4995-ad95-127d7b0fe6f9.png)
+<img src="[images/cover.png](https://user-images.githubusercontent.com/115144351/213116309-c6851905-aa6a-4995-ad95-127d7b0fe6f9.png)" alt="Cover" width="50%"/>
 
 Users can locate the map view to the city on the map by giving the search bar a city name and pressing the search button. The table next to the search bar will also provide the current weather information of the city once users entered a city name. 
 ![image](https://user-images.githubusercontent.com/115144351/213116354-68955050-fedc-491b-bc95-f22161b02f27.png)
